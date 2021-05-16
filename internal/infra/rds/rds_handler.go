@@ -23,7 +23,6 @@ func NewRDBHandler() (*RDBHandler, error) {
 	dbPassword := "{password}"
 
 	dbProtocol := fmt.Sprintf("tcp(%s:%s)", DBHost, DBPort)
-	// About `parseTime=True`, read https://github.com/jinzhu/gorm/issues/18#issuecomment-29351315
 	connectTemplate := "%s:%s@%s/%s?timeout=10s&parseTime=True"
 	connect := fmt.Sprintf(connectTemplate, DBUser, dbPassword, dbProtocol, DBName)
 	db, err := gorm.Open(Dialect, connect)
